@@ -48,7 +48,7 @@ btnRoll.addEventListener('click', function () {
     const roll = Math.trunc(Math.random() * 6) + 1;
 
     // set image
-    diceImg.setAttribute('src', `./assets/dice-${roll}.png`);
+    diceImg.setAttribute('src', `./assets/dice-${roll}.png`); // diceImg.src = `./assets/dice-${roll}.png`
     diceImg.classList.remove('hidden');
 
 
@@ -86,7 +86,7 @@ btnHold.addEventListener('click', function () {
     else { // continue switching players
         players[activePlayer].currScoreElement.textContent = players[activePlayer].currScore;
         players[activePlayer].section.classList.remove('player--active');
-        activePlayer = Math.abs(~(-activePlayer));
+        activePlayer = activePlayer === 0 ? 1 : 0;
         players[activePlayer].section.classList.add('player--active');
     }
 })
